@@ -34,6 +34,7 @@
             this.BtnReadUID = new System.Windows.Forms.Button();
             this.textBoxOutput = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.lblVersion = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // comboBoxReaders
@@ -83,11 +84,21 @@
             this.label1.TabIndex = 4;
             this.label1.Text = "Seleccione el lector";
             // 
+            // lblVersion
+            // 
+            this.lblVersion.Location = new System.Drawing.Point(550, 487);
+            this.lblVersion.Name = "lblVersion";
+            this.lblVersion.Size = new System.Drawing.Size(212, 33);
+            this.lblVersion.TabIndex = 5;
+            this.lblVersion.Text = "Version X.X.X.X";
+            this.lblVersion.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(774, 529);
+            this.Controls.Add(this.lblVersion);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBoxOutput);
             this.Controls.Add(this.BtnReadUID);
@@ -109,6 +120,7 @@
         private System.Windows.Forms.Button BtnReadUID;
         private System.Windows.Forms.TextBox textBoxOutput;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblVersion;
     }
 }
 

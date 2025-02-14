@@ -16,6 +16,8 @@ namespace LectorPCSC_WF
             LoadReaders();
             BtnReadAtr.Enabled = false;
             BtnReadUID.Enabled = false;
+            var versiones = typeof(Form1).Assembly.GetName().Version;
+            lblVersion.Text = $"Versión {versiones}";
         }
         private void LoadReaders()
         {
