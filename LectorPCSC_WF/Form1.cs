@@ -16,6 +16,7 @@ namespace LectorPCSC_WF
             LoadReaders();
             BtnReadAtr.Enabled = false;
             BtnReadUID.Enabled = false;
+            BtnLeerMCDID.Enabled = false;
             var versiones = typeof(Form1).Assembly.GetName().Version;
             lblVersion.Text = $"Versión {versiones}";
         }
@@ -57,6 +58,7 @@ namespace LectorPCSC_WF
             _selectedReader = comboBoxReaders.SelectedItem.ToString();
             BtnReadAtr.Enabled = true;
             BtnReadUID.Enabled = true;
+            BtnLeerMCDID.Enabled = true;
         }
 
         private void BtnReadUID_Click(object sender, EventArgs e)
@@ -89,6 +91,35 @@ namespace LectorPCSC_WF
             catch (Exception ex)
             {
                 MessageBox.Show($"Error al leer UID: {ex.Message}");
+            }
+        }
+
+        private void BtnLeerMCDID_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                using (var reader = new IsoReader(_context, _selectedReader, SCardShareMode.Shared, SCardProtocol.Any, false))
+                {
+                    // Crear el comando APDU para obtener el UID de la tarjeta MIFARE
+                    var apdu = new CommandApdu(IsoCase.Case2Short, reader.ActiveProtocol)
+                    {
+                        CLA = 0x80, // Clase de la instrucción
+                        INS = 0x02, // Instrucción para obtener el UID
+                        P1 = 0x00,  // Parámetro 1
+                        P2 = 0x00,  // Parámetro 2
+                        Le = 0x00   // Longitud esperada de la respuesta
+                    };
+
+                    var response = reader.Transmit(apdu);
+                    var cardMCDID = BitConverter.ToString(response.GetData());
+                    cardMCDID = cardMCDID.Replace("-", "");
+                    cardMCDID = cardMCDID.Substring(0,4) + cardMCDID.Substring(8,12);
+                    textBoxOutput.Text = "MCDID de la tarjeta: " + cardMCDID;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al leer MCDID: La tarjeta no es Multos ó no se pudo leer.\n{ex.Message}");
             }
         }
     }

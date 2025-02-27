@@ -35,6 +35,7 @@
             this.textBoxOutput = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.lblVersion = new System.Windows.Forms.Label();
+            this.BtnLeerMCDID = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // comboBoxReaders
@@ -49,9 +50,9 @@
             // 
             // BtnReadAtr
             // 
-            this.BtnReadAtr.Location = new System.Drawing.Point(172, 307);
+            this.BtnReadAtr.Location = new System.Drawing.Point(140, 306);
             this.BtnReadAtr.Name = "BtnReadAtr";
-            this.BtnReadAtr.Size = new System.Drawing.Size(124, 64);
+            this.BtnReadAtr.Size = new System.Drawing.Size(145, 65);
             this.BtnReadAtr.TabIndex = 1;
             this.BtnReadAtr.Text = "Leer ATR";
             this.BtnReadAtr.UseVisualStyleBackColor = true;
@@ -59,9 +60,9 @@
             // 
             // BtnReadUID
             // 
-            this.BtnReadUID.Location = new System.Drawing.Point(455, 307);
+            this.BtnReadUID.Location = new System.Drawing.Point(302, 306);
             this.BtnReadUID.Name = "BtnReadUID";
-            this.BtnReadUID.Size = new System.Drawing.Size(124, 64);
+            this.BtnReadUID.Size = new System.Drawing.Size(145, 65);
             this.BtnReadUID.TabIndex = 2;
             this.BtnReadUID.Text = "Leer UID";
             this.BtnReadUID.UseVisualStyleBackColor = true;
@@ -93,11 +94,22 @@
             this.lblVersion.Text = "Version X.X.X.X";
             this.lblVersion.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // BtnLeerMCDID
+            // 
+            this.BtnLeerMCDID.Location = new System.Drawing.Point(465, 306);
+            this.BtnLeerMCDID.Name = "BtnLeerMCDID";
+            this.BtnLeerMCDID.Size = new System.Drawing.Size(145, 65);
+            this.BtnLeerMCDID.TabIndex = 6;
+            this.BtnLeerMCDID.Text = "Leer MCDID";
+            this.BtnLeerMCDID.UseVisualStyleBackColor = true;
+            this.BtnLeerMCDID.Click += new System.EventHandler(this.BtnLeerMCDID_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(774, 529);
+            this.Controls.Add(this.BtnLeerMCDID);
             this.Controls.Add(this.lblVersion);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBoxOutput);
@@ -121,6 +133,7 @@
         private System.Windows.Forms.TextBox textBoxOutput;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lblVersion;
+        private System.Windows.Forms.Button BtnLeerMCDID;
     }
 }
 
